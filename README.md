@@ -1,6 +1,6 @@
 # 🧙‍♂️ Desafio RPG em C – **Jornada em Clandor**
 
-**Para:** `SEU_NOME_AQUI` &nbsp;&nbsp; **Idade:** 10 anos  
+**Para:** `Enzo Soares` &nbsp;&nbsp; **Idade:** 10 anos  
 **Tema:** RPG (combate, evolução e loja)
 
 ---
