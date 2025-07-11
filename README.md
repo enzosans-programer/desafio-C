@@ -1,6 +1,6 @@
 # 🧙‍♂️ Desafio RPG em C – **Jornada em Clandor**
 
-**Para:** `Enzo Soares` &nbsp;&nbsp; **Idade:** 10 anos  
+**Para:** `Enzosans-programer` &nbsp;&nbsp; **Idade:** 11 anos  
 **Tema:** RPG (combate, evolução e loja)
 
 ---
