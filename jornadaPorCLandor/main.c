@@ -12,11 +12,11 @@ const char *verde = "\033[32m";
 const char *reset = "\033[0m";
 const char *verdeclaro = "\033[92m";
 const char *azulclaro = "\033[94m";
-//const char *rosa = "\033[95m";
+const char *rosa = "\033[95m";
 const char *roxo = "\033[35m";
 const char *marrom = "\033[33m";
 const char *preto = "\033[90m";
-//const char *branco = "\033[98m";
+const char *branco = "\033[98m";
 
 // Estrutura do jogador
 typedef struct {
@@ -95,6 +95,7 @@ int mostrarMenu() {
 		desenhoTitulo();
 		
 		// Menu interativo abaixo do desenho
+		tocarMusica("sounds\\menu.wav");
 		printf("\nBem-vindo a Clandor!\n\n");
 		printf("1 - JOGAR\n");
 		printf("2 - CRÉDITOS\n");
@@ -111,7 +112,8 @@ int mostrarMenu() {
 		switch (opcao) {
 		case 1:
 			printf("\nIniciando novo jogo...\n");
-			Sleep(1000);
+			Sleep(5000);
+			limparTela();
 			return 1;
 		case 2:
 			printf("\nFeito por: ENZO\n");
@@ -139,8 +141,8 @@ int main(int argc, char *argv[]) {
 		int loop, h;
 		Usuario jogador = { "", 100, 10, 5, 0, 0, 1, 0 };
 		
-		tocarMusica("sounds\\ling.wav");
-		Sleep(1000); // 1 segundo
+		//tocarMusica("sounds\\ling.wav");
+		//Sleep(1000); // 1 segundo
 		
 		for (loop = 1; loop == 1;) {
 			tocarMusica("sounds\\elevador.wav");
@@ -154,7 +156,7 @@ int main(int argc, char *argv[]) {
 			
 			if (h == 1) {
 				printf("Começando o jogo...\n");
-				Sleep(1000);
+				Sleep(5000);
 				limparTela();
 				break;
 			}
@@ -163,10 +165,10 @@ int main(int argc, char *argv[]) {
 		tocarMusica("sounds\\intro.wav");
 		
 		printf("Feito por %sENZO%s...\n\n", azul, reset);
-		Sleep(1000);
+		Sleep(3000);
 		
 		printf("%sEnzotubers Memezado%s edições apresenta...\n\n", azul, reset);
-		Sleep(2000);
+		Sleep(4000);
 		
 		printf("AAAAAA      jjjjjjjj OOOOOO RRRRR  NN  N AAAAAA DDDDD  AAAAA\n");
 		printf("A    A         jj    O    O R   R  N N N A    A D    D A   A\n");
@@ -180,10 +182,10 @@ int main(int argc, char *argv[]) {
 		printf("%sCC     LL     AA    AA NN NN NN DD   DD OO   OO RR   R%s\n", amarelo, reset);
 		printf("%sCC     LL     AAAAAAAA NN  NNNN DD   DD OO   OO RRRRRR%s\n", amarelo, reset);
 		printf("%sCCCCCC LLLLLL AA    AA NN   NNN DDDDD   OOOOOOO RR  RRR%s\n", amarelo, reset);
-		Sleep(2000);
+		Sleep(5000);
 		
 		limparTela();
-		Sleep(500);
+		Sleep(4000);
 		
 		printf("%sHá muito tempo existiam duas formas de vida: humanos e monstros...\n", marrom);
 		printf("     _____\n");
@@ -201,14 +203,14 @@ int main(int argc, char *argv[]) {
 		printf(" \\ \\   \\    /    / /\n");
 		printf("  \\ \\ \\ \\__/  / / /\n");
 		
-		Sleep(2000);
+		Sleep(3000);
 		
 		printf("\nEntre os dois pedaços há um enorme mar chamado O DESCONHECIDO...\n");
 		printf("    _    _     _ \n");
 		printf("   /    /     /  \n");
 		printf("___\\____\\_____\\__%s\n", reset);
 		
-		Sleep(3000);
+		Sleep(6000);
 		
 		limparTela();
 		
@@ -222,7 +224,7 @@ int main(int argc, char *argv[]) {
 		printf("|  \\__|%sOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO%s|\n", azulclaro, reset);
 		printf("\\_____|%sOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO%s|\n", azul, reset);
 		
-		Sleep(3000);
+		Sleep(6000);
 		limparTela();
 		
 		printf("Mas %smonstros sombrios%s de um reino vizinho invadiram a terra de Clandor e lançaram %slobos%s e %sslimes%s no reino...\n", preto, reset, marrom, reset, verdeclaro, reset);
@@ -234,9 +236,10 @@ int main(int argc, char *argv[]) {
 		printf("|   /   \\   |    \\|/___________/ \n");
 		printf("|___________|       | ||    | || \n");
 		
-		Sleep(3000);
+		Sleep(6000);
+		limparTela();
 		printf("O seu objetivo é entrar no reino, derrotar o rei %sdragão%s e acabar com a guerra...\n", roxo, reset);
-		Sleep(2000);
+		Sleep(7000);
 		
 	}
 	
