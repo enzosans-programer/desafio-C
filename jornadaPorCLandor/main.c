@@ -63,50 +63,73 @@ void limparTela() {
 	}
 }
 
+void desenhoTitulo() {
+	printf("AAAAAA      jjjjjjjj OOOOOO RRRRR  NN  N AAAAAA DDDDD  AAAAA\n");
+	printf("A    A         jj    O    O R   R  N N N A    A D    D A   A\n");
+	printf("A    A       jjjj    OOOOOO R   RR N  NN A    A DDDDDD A   A\n");
+	printf("\n");
+	printf("    PPPP  OOOOO RRRRR\n");
+	printf("    P___P O   O R   R\n");
+	printf("    P     OOOOO R   RR\n");
+	printf("\n");
+	printf("%sCCCCCC LL     AAAAAAAA NNNN  NN DDDDD   OOOOOOO RRRRR%s\n", amarelo, reset);
+	printf("%sCC     LL     AA    AA NN NN NN DD   DD OO   OO RR   R%s\n", amarelo, reset);
+	printf("%sCC     LL     AAAAAAAA NN  NNNN DD   DD OO   OO RRRRRR%s\n", amarelo, reset);
+	printf("%sCCCCCC LLLLLL AA    AA NN   NNN DDDDD   OOOOOOO RR  RRR%s\n", amarelo, reset);
+	
+	printf("               \033[32m/\\1/\\\033[0m          \n");
+	printf("                 \033[33m|\033[0m            \n");
+	printf("         \033[93mOOOOOOOOOOOOOOO\033[0m      \n");          
+	printf("       \033[93mOOOOOOOOOOOOOOOOOOO\033[0m    \n");
+	printf("\033[34mMMMMM\033[94mMMMM\033[34mMMMM\033[94mMMMM\033[34mMMMM\033[94mMMMM\033[34mMMMM\033[94mMMMMMM\033[0m\n");
+}
+
+
 int mostrarMenu() {
 	int opcao;
 	
 	while (1) {
 		limparTela();
 		
-		printf("Bem-vindo a Clandor\n");
-		printf("                              %s/\\1/\\%s          |\n", verde, reset);
-		printf("_________                       %s|%s            |\n", marrom, reset);
-		printf("NOVO JOGO|              %sOOOOOOOOOOOOOOO%s      |\n", amarelo, reset);          
-		printf("%s1 - JOGAR%s    |         %sOOOOOOOOOOOOOOOOOOO%s    |\n", amarelo, reset, amarelo, reset);
-		printf("2 - CRÉDITOS |%sMMMMM%sMMMM%sMMMM%sMMMM%sMMMM%sMMMM%sMMMM%sMMMMMM%s|\n", azul, azulclaro, azul, azulclaro, azul, azulclaro, azul, azulclaro, reset);
+		// Título/Desenho no topo
+		desenhoTitulo();
+		
+		// Menu interativo abaixo do desenho
+		printf("\nBem-vindo a Clandor!\n\n");
+		printf("1 - JOGAR\n");
+		printf("2 - CRÉDITOS\n");
 		printf("3 - SAIR\n\n");
 		printf("Escolha uma opção: ");
 		
 		if (scanf("%d", &opcao) != 1) {
-			while (getchar() != '\n'); // Limpa entrada inválida
-			printf("Opção inválida! Pressione Enter para tentar novamente.\n");
-			getchar(); // Espera Enter
+			while (getchar() != '\n'); // Limpa buffer
+			printf("Opção inválida! Pressione Enter para continuar.\n");
+			getchar();
 			continue;
 		}
 		
 		switch (opcao) {
 		case 1:
-			printf("Iniciando novo jogo...\n");
+			printf("\nIniciando novo jogo...\n");
 			Sleep(1000);
-			return 1; // Retorna 1 para seguir com o jogo
+			return 1;
 		case 2:
 			printf("\nFeito por: ENZO\n");
 			printf("Edições: Enzotubers Memezado\n");
-			printf("Pressione Enter para voltar ao menu...");
-			getchar(); getchar(); // Limpa buffer e espera Enter
+			printf("Pressione Enter para voltar...");
+			getchar(); getchar();
 			break;
 		case 3:
-			printf("Saindo do jogo...\n");
+			printf("\nSaindo...\n");
 			Sleep(1000);
 			exit(0);
 		default:
-			printf("Opção inválida! Pressione Enter para tentar novamente.\n");
-			getchar(); getchar(); // Espera Enter
-			break;
+			printf("Opção inválida! Pressione Enter para continuar.\n");
+			getchar(); getchar();
 		}
 	}
 }
+
 
 int main(int argc, char *argv[]) {	
 	SetConsoleOutputCP(CP_UTF8);
