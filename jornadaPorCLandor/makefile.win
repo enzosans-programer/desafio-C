@@ -1,0 +1,37 @@
+# Project: jornadaorCLandor
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912" "C:\Program Files (x86)\Dev-Cpp\MinGW64\x86_64-w64-mingw32\lib\libwinmm.a" "-static"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = jornadaorCLandor_private.res
+OBJ      = main.o $(RES)
+BIN      = jornadaorCLandor.exe
+LINKOBJ  = "main.o" "jornadaorCLandor_private.res"
+CLEANOBJ = "main.o" "jornadaorCLandor_private.res" "jornadaorCLandor.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+jornadaorCLandor.exe: $(OBJ)
+
+	$(CC) $(LINKOBJ) -o "jornadaorCLandor.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c "main.c" -o "main.o" $(CFLAGS) 
+
+jornadaorCLandor_private.res: jornadaorCLandor_private.rc 
+	$(WINDRES) -i "jornadaorCLandor_private.rc" --input-format=rc -o "jornadaorCLandor_private.res" -O coff $(WINDRESFLAGS) 
+
