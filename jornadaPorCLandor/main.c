@@ -132,6 +132,10 @@ int mostrarMenu() {
 	}
 }
 
+void pararMusica(){
+	tocarMusica("sounds\\nada.wav");
+}
+
 
 int main(int argc, char *argv[]) {	
 	SetConsoleOutputCP(CP_UTF8);
@@ -240,7 +244,27 @@ int main(int argc, char *argv[]) {
 		limparTela();
 		printf("O seu objetivo é entrar no reino, derrotar o rei %sdragão%s e acabar com a guerra...\n", roxo, reset);
 		Sleep(7000);
-		
+		printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+		printf("e aqui começa a sua jornada %s%s%s\n", marrom, jogador.nome, reset);
+		Sleep(3000);
+		printf("%sBOA SORTE%s\n", vermelho, reset);
+		Sleep(3000);
+		printf("%sVOÇE VAI PRECISAR%s\n", vermelho, reset);
+		Sleep(5500);
+		limparTela();
+		Sleep(3000);
+		printf("%s HA HA HA HA\n", vermelho);
+		Sleep(1290);
+		printf("%s HA HA HA HA\n", vermelho);
+		Sleep(7000);
+		printf("%sRRRRRRRR     UUUU     UUUU   NNNNN     NNN\n", vermelho);
+		printf("RRRRRRRRRR   UUUU     UUUU   NNNNNNN   NNN\n");
+		printf("RRR    RRR   UUUU     UUUU   NNN NNNN  NNN\n");
+		printf("RRRRRRRRR    UUUU     UUUU   NNN  NNNN NNN\n");
+		printf("RRRRRRRR     UUUU     UUUU   NNN   NNNNNNN\n");
+		printf("RRR  RRRR    UUUUUUUUUUUUU   NNN    NNNNNN\n");
+		printf("RRR    RRR   UUUUUUUUUUUUU   NNN     NNNNN%s\n", reset);
+		Sleep(1000);
 	}
 	
 	return 0;
