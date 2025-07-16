@@ -137,29 +137,37 @@ void pararMusica(){
 }
 
 void slime(){
-	int decisao, s1;
+	int decisao, s1, vidaslime = 10, i, fim = 1;
+	tocarMusica("sounds\\slime.wav");
+	
 	printf("um slime apareçeu!!!\n");
 	printf("iniciar batalha? 1-sim|2-não\n");
 	scanf("%d", &decisao);
 	if(decisao == 1){
 	printf("uma batalha começou!\n");
+	for(i=1;i<=1;){
+		if(fim >= 2){
+			break;
+		}
 	printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
 	scanf("%d", &s1);
 	switch (s1) {
 	case 1:
-	printf("slime: VIDA %s/ATAQUE 2/DEFESA 1|\n");
+	printf("slime: VIDA %d/ATAQUE 2/DEFESA 1|\n", vidaslime);
 		break;
 	case 2:
 		//TODO
 		break;
 	case 3:
 	printf("voçe vez um desistir!\n");
+		fim++;
 		break;
 	case 4:
-		break;
+		printf("ITENS:\n");
 	default:
-		//TODO
+		printf("numero invalido\n");
 		break;
+	}
 	}
 	}
 }
@@ -296,16 +304,15 @@ int main(int argc, char *argv[]) {
 		printf("BOAS ESCOLHAS\n");
 		Sleep(3000);
 		printf("adeus\n");
-		Sleep(3000);
-		for(int i=1;i<=10500;i++){
-			printf("01");
-		}
+		Sleep(9000);
 		pararMusica();
 		Sleep(3000);
 		tocarMusica("sounds\\mar.wav");
 		printf("voçe chegou a ilha de clandor");
 		Sleep(2000);
 		printf("consegue ouvir o som do mar, a batida das folhas, \n");
+		Sleep(2000);
+		slime();
 		
 	}
 	
