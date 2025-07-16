@@ -136,6 +136,34 @@ void pararMusica(){
 	tocarMusica("sounds\\nada.wav");
 }
 
+void slime(){
+	int decisao, s1;
+	printf("um slime apareçeu!!!\n");
+	printf("iniciar batalha? 1-sim|2-não\n");
+	scanf("%d", &decisao);
+	if(decisao == 1){
+	printf("uma batalha começou!\n");
+	printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
+	scanf("%d", &s1);
+	switch (s1) {
+	case 1:
+	printf("slime: VIDA %s/ATAQUE 2/DEFESA 1|\n");
+		break;
+	case 2:
+		//TODO
+		break;
+	case 3:
+	printf("voçe vez um desistir!\n");
+		break;
+	case 4:
+		break;
+	default:
+		//TODO
+		break;
+	}
+	}
+}
+
 
 int main(int argc, char *argv[]) {	
 	SetConsoleOutputCP(CP_UTF8);
@@ -264,7 +292,21 @@ int main(int argc, char *argv[]) {
 		printf("RRRRRRRR     UUUU     UUUU   NNN   NNNNNNN\n");
 		printf("RRR  RRRR    UUUUUUUUUUUUU   NNN    NNNNNN\n");
 		printf("RRR    RRR   UUUUUUUUUUUUU   NNN     NNNNN%s\n", reset);
-		Sleep(1000);
+		Sleep(4000);
+		printf("BOAS ESCOLHAS\n");
+		Sleep(3000);
+		printf("adeus\n");
+		Sleep(3000);
+		for(int i=1;i<=10500;i++){
+			printf("01");
+		}
+		pararMusica();
+		Sleep(3000);
+		tocarMusica("sounds\\mar.wav");
+		printf("voçe chegou a ilha de clandor");
+		Sleep(2000);
+		printf("consegue ouvir o som do mar, a batida das folhas, \n");
+		
 	}
 	
 	return 0;
