@@ -310,7 +310,7 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
-		lobo(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.xp, jogador.ataque);
+		l//(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.xp, jogador.ataque);
 		tocarMusica("sounds\\intro.wav");
 		
 		printf("Feito por %sENZO%s...\n\n", azul, reset);
