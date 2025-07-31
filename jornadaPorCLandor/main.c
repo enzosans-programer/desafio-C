@@ -137,130 +137,132 @@ int mostrarMenu() {
 void pararMusica(){
 	tocarMusica("sounds\\nada.wav");
 }
-void slime(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vivo, int karma, int xp){
-	int decisao, s1, vidaslime = 15, i, fim = 1, convensido = 1, num, p = 5;
+void mago(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vivo, int karma, int xp){
+	int decisao, s1, vidaslime = 30, fim = 1, convensido = 1, num, i = 1;
 	tocarMusica("sounds\\slime.wav");
-	
-	printf("um slime apareçeu!!!\n");
-	printf("iniciar batalha? 1-sim|2-não\n");
-	scanf("%d", &decisao);
-	if(decisao == 1){
-		printf("uma batalha começou!\n");
-		for(i=1;i<=1;){
-			
-			if(fim >= 2){
-				xp += p;
-				break;
-			}
-			printf("%s|VIDA %d/LV %d/OURO %d/atq %d\n", nome, vida, lv, ouro, ataque);
-			printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
-			scanf("%d", &s1);
-			switch (s1) {
-			case 1:
-				printf("slime: VIDA %d/ATAQUE 1/DEFESA 1|\n", vidaslime);
-				break;
-			case 2:
-				printf("você tirou %d de vida dele\n", ataque);
-				vidaslime-=2;
-				if(vidaslime <=0){
-					printf("voçe o matou!!\n");
-					pararMusica();
-					break;
-					fim++;
-					karma++;
-				}
-				srand(time(NULL));
-				int r = rand() % 999;
-				printf("%d\n", r);
-				Sleep(1000);
-				system("cls");
-				printf("coloque o mesmo numero que apareçeu para desviar do ataque do slime\n");
-				scanf("%d", &num);
-				if(num == r){
-					printf("voçe desviou!!\n");
+	while(i == 1){
+		
+		printf("um mago apareçeu!!!\n");
+		printf("iniciar batalha? 1-sim|2-não\n");
+		scanf("%d", &decisao);
+		if(decisao == 1){
+			printf("uma batalha começou!\n");
+			while(fim <= 1){
+				if(vidaslime <= 0){
 					break;
 				}
-				else{
-					printf("ele te açertou!! voçe perdeu 2 de vida\n");
-					vida -= 1;
-					if(vida < 1){
-						printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
-						pararMusica();
-						Sleep(3000);
-						vivo--;
-						fim++;
+				printf("%s|VIDA %d/LV %d/OURO %d/atq %d\n", nome, vida, lv, ouro, ataque);
+				printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
+				scanf("%d", &s1);
+				switch (s1) {
+				case 1:
+					printf("mago: VIDA %d/ATAQUE 7/DEFESA 1|\n", vidaslime);
+					break;
+				case 2:
+					printf("você tirou %d de vida dele\n", ataque);
+					vidaslime-= ataque;
+					if(vidaslime <=0){
+						printf("voçe o matou!!\n");
 						break;
+						pararMusica();
+						fim++;
+						karma++;
 					}
-				}
-			case 3:
-				if(convensido <= 5){
-					printf("ele ainda nao esta convensido!\n");
-					convensido++;
 					srand(time(NULL));
 					int r = rand() % 999;
 					printf("%d\n", r);
 					Sleep(1000);
 					system("cls");
-					printf("coloque o mesmo numero que apareçeu para desviar do ataque do slime\n");
+					printf("coloque o mesmo numero que apareçeu para desviar do ataque do mago\n");
 					scanf("%d", &num);
 					if(num == r){
 						printf("voçe desviou!!\n");
+						break;
 					}
 					else{
-						printf("ele te açertou!! voçe perdeu 2 de vida\n");
-						vida-= 2;
+						printf("ele te açertou!! voçe perdeu 7 de vida\n");
+						vida -= 7;
 						if(vida < 1){
 							printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
-							pararMusica();
 							Sleep(3000);
+							pararMusica();
 							vivo--;
 							fim++;
 							break;
 						}
 					}
-				}else{
-					printf("voce fez um desistir\n");
-					pararMusica();
-					fim++;
+				case 3:
+					if(convensido <= 5){
+						printf("ele ainda nao esta convensido!\n");
+						convensido++;
+						srand(time(NULL));
+						int r = rand() % 999;
+						printf("%d\n", r);
+						Sleep(1000);
+						system("cls");
+						printf("coloque o mesmo numero que apareçeu para desviar do ataque do mago\n");
+						scanf("%d", &num);
+						if(num == r){
+							printf("voçe desviou!!\n");
+						}
+						else{
+							printf("ele te açertou!! voçe perdeu 7 de vida\n");
+							vida-= 7;
+							if(vida < 1){
+								printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
+								Sleep(3000);
+								vivo--;
+								fim++;
+								break;
+							}
+						}
+					}else{
+						printf("voce fez um desistir\n");
+						fim++;
+						break;
+						pararMusica();
+					}
+				case 4:
+					printf("ITENS:\n");
+					break;
+				default:
+					printf("numero invalido\n");
 					break;
 				}
-			case 4:
-				printf("ITENS:\n");
-				break;
-			default:
-				printf("numero invalido\n");
-				break;
 			}
+			break;
 		}
-	}
 		if(decisao == 2){
 			printf("voçe deixou um escapar!!!!\n");
+			break;
 			pararMusica();
 		}
-	
+		if(decisao != 1 && decisao != 2){
+			printf("numero invalido\n");
+		}
+	}
 }
 
 void lobo(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vivo, int karma, int xp){
-	int decisao, s1, vidaslime = 10, fim = 1, convensido = 1, num, p = 3;
+	int decisao, s1, vidaslime = 20, fim = 1, convensido = 1, num, i = 1;
 	tocarMusica("sounds\\slime.wav");
-	for(int i=1;i<=2;){
+	while(i == 1){
+		
 	printf("um lobo apareçeu!!!\n");
 	printf("iniciar batalha? 1-sim|2-não\n");
 	scanf("%d", &decisao);
 	if(decisao == 1){
 		printf("uma batalha começou!\n");
-		for(i=1;i<=1;){
-			
-			if(fim >= 2){
-				xp += p;
-				break;
-			}
+		while(fim <= 1){
+		if(vidaslime <= 0){
+			break;
+		}
 			printf("%s|VIDA %d/LV %d/OURO %d/atq %d\n", nome, vida, lv, ouro, ataque);
 			printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
 			scanf("%d", &s1);
 			switch (s1) {
 			case 1:
-				printf("lobo: VIDA %d/ATAQUE 1/DEFESA 1|\n", vidaslime);
+				printf("lobo: VIDA %d/ATAQUE 5/DEFESA 1|\n", vidaslime);
 				break;
 			case 2:
 				printf("você tirou %d de vida dele\n", ataque);
@@ -284,8 +286,8 @@ void lobo(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vi
 					break;
 				}
 				else{
-					printf("ele te açertou!! voçe perdeu 1 de vida\n");
-					vida -= 1;
+					printf("ele te açertou!! voçe perdeu 5 de vida\n");
+					vida -= 5;
 					if(vida < 1){
 						printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
 						Sleep(3000);
@@ -310,8 +312,8 @@ void lobo(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vi
 						printf("voçe desviou!!\n");
 					}
 					else{
-						printf("ele te açertou!! voçe perdeu 1 de vida\n");
-						vida-= 1;
+						printf("ele te açertou!! voçe perdeu 5 de vida\n");
+						vida-= 5;
 						if(vida < 1){
 							printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
 							Sleep(3000);
@@ -346,7 +348,111 @@ void lobo(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int vi
 	}
 	}
 }
-
+void slime(char* nome, int vida, int lv, int ouro, int ataque, int defesa, int* vivo, int karma, int xp){
+	int decisao, s1, vidaslime = 10, fim = 1, convensido = 1, num, i = 1;
+	tocarMusica("sounds\\slime.wav");
+	while(i == 1){
+		
+		printf("um slime apareçeu!!!\n");
+		printf("iniciar batalha? 1-sim|2-não\n");
+		scanf("%d", &decisao);
+		if(decisao == 1){
+			printf("uma batalha começou!\n");
+			while(fim == 1){
+				if(vidaslime <= 0){
+					break;
+				}
+				printf("%s|VIDA %d/LV %d/OURO %d/atq %d\n", nome, vida, lv, ouro, ataque);
+				printf("ver status do oponente-1|atacar-2|piedade-3|itens-4\n");
+				scanf("%d", &s1);
+				switch (s1) {
+				case 1:
+					printf("slime: VIDA %d/ATAQUE 2/DEFESA 1|\n", vidaslime);
+					break;
+				case 2:
+					printf("você tirou %d de vida dele\n", ataque);
+					vidaslime-= ataque;
+					if(vidaslime <=0){
+						printf("voçe o matou!!\n");
+						break;
+						pararMusica();
+						fim++;
+						karma++;
+					}
+					srand(time(NULL));
+					int r = rand() % 999;
+					printf("%d\n", r);
+					Sleep(1000);
+					system("cls");
+					printf("coloque o mesmo numero que apareçeu para desviar do ataque do slime\n");
+					scanf("%d", &num);
+					if(num == r){
+						printf("voçe desviou!!\n");
+						break;
+					}
+					else{
+						printf("ele te açertou!! voçe perdeu 2 de vida\n");
+						vida -= 2;
+						if(vida < 1){
+							printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
+							Sleep(3000);
+							pararMusica();
+							(*vivo)--;
+							fim++;
+							break;
+						}
+					}
+				case 3:
+					if(convensido <= 5){
+						printf("ele ainda nao esta convensido!\n");
+						convensido++;
+						srand(time(NULL));
+						int r = rand() % 999;
+						printf("%d\n", r);
+						Sleep(1000);
+						system("cls");
+						printf("coloque o mesmo numero que apareçeu para desviar do ataque do slime\n");
+						scanf("%d", &num);
+						if(num == r){
+							printf("voçe desviou!!\n");
+						}
+						else{
+							printf("ele te açertou!! voçe perdeu 2 de vida\n");
+							vida-= 2;
+							if(vida < 1){
+								printf("%sVOÇE MORREU (:< %s\n", vermelho, reset);
+								Sleep(3000);
+								(*vivo)--;
+								fim++;
+								break;
+							}
+						}
+					}else{
+						printf("voce fez um desistir\n");
+						fim++;
+						break;
+						pararMusica();
+					}
+				case 4:
+					printf("ITENS:\n");
+					break;
+				default:
+					printf("numero invalido\n");
+					break;
+				}
+			}
+			break;
+		}
+		if(decisao == 2){
+			printf("voçe deixou um escapar!!!!\n");
+			break;
+			pararMusica();
+		}
+		if(decisao != 1 && decisao != 2){
+			printf("numero invalido\n");
+		}
+	}
+}
     void morreu(){
 	tocarMusica("sounds\\memorys");
 	printf("como foi poder viver?\n");
@@ -368,7 +474,7 @@ int main(int argc, char *argv[]) {
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
 	for(int i=1;i == 1;){
-		
+	
 	if (mostrarMenu()) {
 		int loop, h;
 		Usuario jogador = { "", 100, 10, 5, 0, 0, 1};
@@ -381,7 +487,10 @@ int main(int argc, char *argv[]) {
 		
 		//tocarMusica("sounds\\ling.wav");
 		//Sleep(1000); // 1 segundo
-		
+		//lobo(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.ataque, jogador.defesa, jogador.vivo, jogador.karma, jogador.xp);
+		//if(jogador.vivo <= 0){
+		//	morreu();
+		//}
 		for (loop = 1; loop == 1;) {
 			tocarMusica("sounds\\elevador.wav");
 			
@@ -524,23 +633,39 @@ int main(int argc, char *argv[]) {
 		switch (jogo) {
 		case 1:
 			printf("você esta em %d|             %sMAPA%s\n", local, vermelho, reset);
-			printf("               |%sOOOOO%s          %sMMMM%s\n", verde, reset, marrom, reset);   
+			printf("               |   %sOOOOO%s          %sMMMM%s\n", verde, reset, marrom, reset);   
 			printf("1- floresta    |----%sIIII%s-----l    %sMMMMMM%s             %sMM MM%s\n", marrom, reset, marrom, reset, preto, reset);
 			printf("2- montanha    |             l---%sMMMMMMMM%s-----l      %sMMMMM%s\n", marrom, reset, preto, reset);
 			printf("3- (bloqueado) |                              l------%sMM MM%s\n", preto, reset);
+			printf("\n");
+			printf("aonde vc quer ir\n");
+			int onde;
+			scanf("%d", &onde);
+			
 			break;
 		case 2:
 			srand(time(NULL));
 			int r = rand() % 2;
-			if(r == 1){
+			if(r <= 1 && local == 1){
 				lobo(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.ataque, jogador.defesa, jogador.vivo, jogador.karma, jogador.xp);
 				if(jogador.vivo <= 0){
 					morreu();
 				}
-			}else{
-				printf("%d\n", jogador.vida);
+			}
+			if(r == 2 && local == 1){
 				slime(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.ataque, jogador.defesa, jogador.vivo, jogador.karma, jogador.xp);
-				printf("%d\n", jogador.vida);
+				if(jogador.vivo <= 0){
+					morreu();
+				}
+			}
+			if(r <= 1 && local == 2){
+				lobo(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.ataque, jogador.defesa, jogador.vivo, jogador.karma, jogador.xp);
+				if(jogador.vivo <= 0){
+					morreu();
+				}
+			}
+			if(r == 2 && local == 2){
+				slime(jogador.nome, jogador.vida, jogador.nivel, jogador.ouro, jogador.ataque, jogador.defesa, jogador.vivo, jogador.karma, jogador.xp);
 				if(jogador.vivo <= 0){
 					morreu();
 				}
