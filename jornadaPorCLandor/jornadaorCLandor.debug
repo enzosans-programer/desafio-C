@@ -1,7 +1,15 @@
 {
     "breakpoints": [
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "main.c",
+            "line": 162,
+            "timestamp": "1754578549261"
+        }
     ],
-    "timestamp": "1753731027619",
+    "timestamp": "1754579746141",
     "watchvars": [
     ]
 }
